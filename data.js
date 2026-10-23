@@ -34,8 +34,7 @@ const PORTFOLIO = {
       { label: "Education", value: "B.E. Computer Engineering, SPPU (CGPA 7.76)" },
       { label: "Location", value: "Pune, Maharashtra" }
     ],
-    photo: "assets/images/profile.jpg",  // put your photo at this path
-    photoCaption: "Er. Sahil Namdev Wakhare"  // text shown under the photo
+    photo: "assets/images/profile.jpg"   // put your photo at this path
   },
 
   // "What I Do" focus cards

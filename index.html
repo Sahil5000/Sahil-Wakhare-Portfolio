@@ -40,12 +40,12 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#focus">What I Do</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
                 <li data-section="achievements"><a href="#achievements">Achievements</a></li>
                 <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -85,7 +85,6 @@
                 <div class="photo-wrap" data-aos="fade-left">
                     <img id="profilePhoto" class="profile-photo" width="720" height="1280" alt="Profile photo" loading="lazy">
                     <div id="photoFallback" class="profile-photo fallback" hidden></div>
-                    <p class="photo-caption" data-bind="about.photoCaption"></p>
                 </div>
             </div>
         </section>
@@ -97,6 +96,20 @@
             </div>
         </section>
 
+        <section id="experience">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>Work History</h2></div>
+                <div id="experienceList"></div>
+            </div>
+        </section>
+
+        <section id="projects" class="bg-light">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>Projects</h2></div>
+                <div class="grid-2 project-grid" id="projectList"></div>
+            </div>
+        </section>
+
         <section id="skills">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up"><h2>Technical Expertise</h2></div>
@@ -104,14 +117,7 @@
             </div>
         </section>
 
-        <section id="experience" class="bg-light">
-            <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Work History</h2></div>
-                <div id="experienceList"></div>
-            </div>
-        </section>
-
-        <section id="education">
+        <section id="education" class="bg-light">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up"><h2>Education</h2></div>
                 <div class="edu-list" id="educationList"></div>
@@ -125,17 +131,10 @@
             </div>
         </section>
 
-        <section id="certifications" class="bg-light">
+        <section id="certifications">
             <div class="container">
                 <div class="section-heading" data-aos="fade-up"><h2>Certifications</h2></div>
                 <div class="grid-4" id="certList"></div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Projects</h2></div>
-                <div class="grid-2 project-grid" id="projectList"></div>
             </div>
         </section>
 
@@ -157,6 +156,7 @@
                 </div>
             </div>
         </section>
+
     </main>
 
     <div class="pdf-modal" id="pdfModal" hidden role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
