@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Professional Portfolio of Sahil Wakhare - DevOps Engineer">
+    <title>Sahil Wakhare | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a class="brand" href="#" data-bind="name-upper"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#focus">What I Do</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li data-section="achievements"><a href="#achievements">Achievements</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="welcome-hero" class="welcome-hero">
+            <div class="container text-center">
+                <div class="header-text" data-aos="zoom-in" data-aos-duration="1500">
+                    <span class="hero-hello">Hello, I'm</span>
+                    <h1 data-bind="fullName"></h1>
+                    <p class="hero-tagline" data-bind="tagline"></p>
+                    <div class="typing-line">I build <span id="typed"></span><span class="cursor" aria-hidden="true">|</span></div>
+                    <div class="hero-chips" id="heroChips"></div>
+                    <div class="hero-btns">
+                        <a id="resumeBtn" class="btn-primary" download><i class="fa fa-download" aria-hidden="true"></i> DOWNLOAD RESUME</a>
+                        <a href="#projects" class="btn-ghost"><i class="fa fa-rocket" aria-hidden="true"></i> VIEW PROJECTS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-grid">
+                <div data-aos="fade-right">
+                    <div class="section-heading"><h2>Professional Bio</h2></div>
+                    <p class="bio" data-bind="about.bio"></p>
+                    <hr>
+                    <div class="two-col" id="aboutDetails"></div>
+                </div>
+                <div class="photo-wrap" data-aos="fade-left">
+                    <img id="profilePhoto" class="profile-photo" width="720" height="1280" alt="Profile photo" loading="lazy">
+                    <div id="photoFallback" class="profile-photo fallback" hidden></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="focus" class="bg-light">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>What I Do</h2></div>
+                <div class="grid-4" id="focusList"></div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>Technical Expertise</h2></div>
+                <div class="grid-2" id="skillsList"></div>
+            </div>
+        </section>
+
+        <section id="experience" class="bg-light">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>Work History</h2></div>
+                <div id="experienceList"></div>
+            </div>
+        </section>
+
+        <section id="achievements" class="bg-light">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>Key Achievements</h2></div>
+                <div class="grid-3" id="achievementsList"></div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>Certifications</h2></div>
+                <div class="grid-4" id="certList"></div>
+            </div>
+        </section>
+
+        <section id="projects" class="bg-light">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>Projects</h2></div>
+                <div class="grid-4" id="projectList"></div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-heading" data-aos="fade-up"><h2>Get In Touch</h2></div>
+                <div class="grid-3 contact-grid" data-aos="fade-up">
+                    <div class="contact-item"><i class="fa fa-phone"></i><h4>Phone</h4><a id="cPhone"></a></div>
+                    <div class="contact-item"><i class="fa fa-envelope"></i><h4>Email</h4><a id="cEmail"></a></div>
+                    <div class="contact-item"><i class="fa fa-map-marker"></i><h4>Location</h4><p data-bind="contact.location"></p></div>
+                </div>
+                <div class="text-center collab" data-aos="zoom-in">
+                    <h3>Let's Build Something Great Together</h3>
+                    <p class="collab-sub">Have an idea, a project or an opportunity? I'm just a message away.</p>
+                    <div class="cta-row">
+                        <a id="cWhatsapp" class="btn-whatsapp" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i> CHAT ON WHATSAPP</a>
+                        <a id="cLinkedin" class="btn-linkedin" target="_blank" rel="noopener"><i class="fa fa-linkedin-square" aria-hidden="true"></i> CONNECT ON LINKEDIN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="pdf-modal" id="pdfModal" hidden role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
+        <div class="pdf-dialog">
+            <div class="pdf-head">
+                <h3 id="pdfTitle"></h3>
+                <div class="pdf-actions">
+                    <a id="pdfOpen" target="_blank" rel="noopener" title="Open in new tab"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+                    <button type="button" id="pdfClose" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <iframe id="pdfFrame" title="Certificate"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center"><p id="footerText"></p></div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
