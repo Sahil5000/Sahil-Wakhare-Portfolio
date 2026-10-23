@@ -41,8 +41,10 @@
     // What I Do
     $('focusList').innerHTML = d.focus.map((f, n) => `
         <div class="focus-card" data-aos="fade-up" data-aos-delay="${n * 100}">
-            <div class="focus-logos">${f.logos.map((l) => `<span>${logo(l)}</span>`).join('')}</div>
-            <h3>${esc(f.title)}</h3>
+            <div class="focus-head">
+                <div class="focus-logos">${f.logos.map((l) => `<span>${logo(l)}</span>`).join('')}</div>
+                <h3>${esc(f.title)}</h3>
+            </div>
             <p>${esc(f.text)}</p>
             <div class="focus-tags">${f.tags.map((t) => `<span>${esc(t)}</span>`).join('')}</div>
         </div>`).join('');
