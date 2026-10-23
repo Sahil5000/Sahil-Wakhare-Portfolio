@@ -293,8 +293,6 @@ footer p { margin: 0; }
     .section-heading h2 { font-size: 24px; margin-bottom: 45px; }
     .card-box { padding: 25px; }
     .profile-photo.fallback { font-size: 80px; }
-    /* Justified text leaves big gaps on narrow screens */
-    .bio, .card-box p, .focus-card p { text-align: left; }
     .bio { font-size: 16px; }
     .card-box h3 { font-size: 20px; }
     .contact-item { padding: 22px; }
