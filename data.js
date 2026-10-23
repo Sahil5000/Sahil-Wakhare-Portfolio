@@ -113,17 +113,7 @@ const PORTFOLIO = {
       board: "Savitribai Phule Pune University (SPPU)",
       logo: "assets/icons/sppu-logo.png",
       score: { value: 7.76, max: 10, label: "CGPA" },
-      results: ["First Class with Distinction", "Final Year SGPA 9.00"],
-      journey: [
-        { label: "FE", value: 7.61 }, { label: "SE", value: 6.57 },
-        { label: "TE", value: 7.98 }, { label: "BE", value: 9.00 }
-      ],
-      subjects: [
-        { name: "Deep Learning", grade: "O" }, { name: "Natural Language Processing", grade: "O" },
-        { name: "Software Testing & QA", grade: "O" }, { name: "Final Year Project", grade: "O" },
-        { name: "Cyber Security & Digital Forensics", grade: "A+" }, { name: "High Performance Computing", grade: "A+" },
-        { name: "Blockchain Technology", grade: "A" }, { name: "Machine Learning", grade: "B" }
-      ],
+      results: ["First Class with Distinction"],
       docs: [
         { label: "Degree Certificate", file: "assets/education/be-degree-certificate.jpg" },
         { label: "Passing Certificate", file: "assets/education/be-passing-certificate.pdf" },
@@ -131,18 +121,13 @@ const PORTFOLIO = {
       ]
     },
     {
-      date: "2021",
+      date: "2020 - 2021",
       degree: "Higher Secondary Certificate (HSC), Science",
       institute: "Pune Divisional Board",
       board: "Maharashtra State Board of Secondary and Higher Secondary Education",
       logo: "assets/icons/msbshse-logo.png",
       score: { value: 73, max: 100, label: "Percent", suffix: "%" },
       results: ["Science Stream"],
-      subjects: [
-        { name: "Electronics", grade: "84%" }, { name: "Chemistry", grade: "73%" },
-        { name: "English", grade: "70%" }, { name: "Physics", grade: "64%" },
-        { name: "Mathematics & Statistics", grade: "63%" }
-      ],
       docs: [
         { label: "Marksheet", file: "assets/education/hsc-marksheet.pdf" }
       ]

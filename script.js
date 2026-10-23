@@ -109,20 +109,6 @@
                     </div>
                     ${ring(ed.score)}
                 </div>
-                <div class="edu-details">
-                    ${ed.journey ? `<div class="edu-block">
-                        <h5>SGPA Journey</h5>
-                        <div class="edu-journey">${ed.journey.map((j) => `
-                            <div class="jbar"><span class="jval">${j.value.toFixed(2)}</span>
-                                <div class="jtrack"><div class="jfill" data-h="${(j.value / 10) * 100}"></div></div>
-                                <span class="jlabel">${esc(j.label)}</span></div>`).join('')}
-                        </div>
-                    </div>` : ''}
-                    <div class="edu-block">
-                        <h5>${ed.journey ? 'Key Subjects & Grades' : 'Subject Scores'}</h5>
-                        <div class="edu-subjects">${ed.subjects.map((s) => `<span>${esc(s.name)}<b>${esc(s.grade)}</b></span>`).join('')}</div>
-                    </div>
-                </div>
                 <div class="edu-docs">${ed.docs.map((doc) => `
                     <button type="button" class="letter-btn" data-pdf="${esc(doc.file)}" data-title="${esc(doc.label)}: ${esc(ed.degree)}">
                         <i class="fa ${/\.pdf$/i.test(doc.file) ? 'fa-file-pdf-o' : 'fa-file-image-o'}" aria-hidden="true"></i> ${esc(doc.label)}</button>`).join('')}
@@ -130,7 +116,7 @@
             </div>
         </div>`).join('');
 
-    // Education animations: score ring, number count and SGPA bars when visible
+    // Education animations: score ring and number count when visible
     const eduObserver = new IntersectionObserver((entries) => {
         entries.forEach((en) => {
             if (!en.isIntersecting) return;
@@ -150,7 +136,6 @@
                 requestAnimationFrame(step);
                 setTimeout(() => { num.textContent = target.toFixed(dec) + suf; }, 1650);
             }
-            card.querySelectorAll('.jfill').forEach((f, i) => setTimeout(() => { f.style.height = f.dataset.h + '%'; }, 200 + i * 150));
             eduObserver.unobserve(card);
         });
     }, { threshold: 0.3 });
@@ -255,6 +240,8 @@
     $('cPhone').href = `tel:${c.phone.replace(/\s+/g, '')}`;
     $('cEmail').textContent = c.email;
     $('cEmail').href = `mailto:${c.email}`;
+    $('cLocation').textContent = c.location;
+    $('cLocation').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.location)}`;
     $('cWhatsapp').href = `https://wa.me/${c.whatsapp.replace(/\D/g, '')}`;
     $('cLinkedin').href = c.linkedin;
 
