@@ -291,7 +291,8 @@ footer p { margin: 0; }
     .typing-line { font-size: 18px; min-height: 56px; }
     .hero-chips span { font-size: 12px; padding: 6px 12px; }
     .section-heading h2 { font-size: 24px; margin-bottom: 45px; }
-    .card-box { padding: 25px; }
+    .card-box { padding: 22px 18px; }
+    .card-box p { font-size: 14.5px; }
     .profile-photo.fallback { font-size: 80px; }
     .bio { font-size: 16px; }
     .card-box h3 { font-size: 20px; }
