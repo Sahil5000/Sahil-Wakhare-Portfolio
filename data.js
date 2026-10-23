@@ -27,7 +27,7 @@ const PORTFOLIO = {
   footerText: "Code. Build. Integrate AI. Repeat",
 
   about: {
-    bio: "Software Developer with 1+ years of hands-on experience across 3 companies. I have delivered 10+ production websites and web apps, built 7+ Java modules for enterprise and government platforms, and resolved 100+ bugs and issues. I work with Java, Spring Boot, JavaScript, React.js, Next.js, Node.js, PostgreSQL, MySQL, REST APIs and GraphQL, with a focus on AI-driven development and LLM integration using the Gemini API in Python.",
+    bio: "I am a Software Developer with 1+ years of hands-on experience across 3 companies. I have delivered 10+ production websites and web apps, built 7+ Java modules for enterprise and government platforms, and resolved 100+ bugs and issues. I work with Java, Spring Boot, JavaScript, React.js, Next.js, Node.js, PostgreSQL, MySQL, REST APIs and GraphQL, with a focus on AI-driven development and LLM integration using the Gemini API in Python.",
     details: [
       { label: "Current Role", value: "Associate Developer" },
       { label: "Company", value: "Movinnza" },
@@ -54,7 +54,7 @@ const PORTFOLIO = {
     {
       logos: ["react", "nextjs", "spring"],
       title: "Full-Stack Web Applications",
-      text: "Production-grade websites and web apps with React, Next.js, Node.js and Spring Boot, backed by REST & GraphQL APIs.",
+      text: "I build production-grade websites and web apps with React, Next.js, Node.js and Spring Boot, backed by fast REST and GraphQL APIs.",
       tags: ["React", "Next.js", "Spring Boot", "GraphQL"]
     },
     {
@@ -86,7 +86,7 @@ const PORTFOLIO = {
       date: "Sep 2026 - Present",
       title: "Associate Developer",
       company: "Movinnza, Pune",
-      description: "Develop and maintain 10+ full-stack production websites and web apps with React.js, Next.js, Node.js, PostgreSQL and GraphQL. Ship features for the Nexus 360 SaaS platform, integrate REST and third-party APIs, and resolve client-reported bugs in production. Drive AI-assisted development with ChatGPT, Claude and Gemini for debugging, documentation and test case writing, with manual review of all AI output."
+      description: "Develop and maintain 10+ full-stack production websites and web apps with React.js, Next.js, Node.js, PostgreSQL and GraphQL. Ship features for the Nexus 360 SaaS platform, integrate REST and third-party APIs, and resolve client-reported bugs in production. Drive AI-assisted development with ChatGPT, Claude and Gemini for debugging, documentation and writing test cases, with manual review of all AI output."
     },
     {
       date: "Mar 2026 - Sep 2026",
@@ -158,21 +158,21 @@ const PORTFOLIO = {
     {
       title: "Curated Canopy Safaris", subtitle: "Safari Booking Website", date: "Live",
       icon: "assets/projects/curated-canopy-icon.png",
-      description: "Wildlife safari booking website with safari packages, detailed itineraries, pricing, blog, contact forms and booking flow with Easebuzz payment gateway. Built on Next.js for routing and rendering, with SEO through Next.js Metadata and JSON-LD structured data, and Sharp image optimization.",
+      description: "Wildlife safari booking website with safari packages, detailed itineraries, pricing, blog, contact forms and a booking flow with the Easebuzz payment gateway. Built on Next.js for routing and rendering, with SEO through Next.js Metadata and JSON-LD structured data, and Sharp image optimization.",
       tags: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Easebuzz"],
       url: "https://curatedcanopysafaris.com/", cta: "Visit Website", ctaIcon: "fa-globe"
     },
     {
       title: "Cortex AI", subtitle: "Voice & Vision Assistant", date: "Mar 2026",
       icon: "assets/icons/gemini.svg",
-      description: "LLM-powered desktop assistant with a real-time voice pipeline: speech recognition turns commands into text, the Gemini API generates answers and text-to-speech replies instantly. Supports 4 input modes: voice, live camera with OpenCV, PDF Q&A and web search, plus voice automation to open apps, files and websites.",
+      description: "LLM-powered desktop assistant with a real-time voice pipeline: speech recognition turns commands into text, the Gemini API generates answers, and text-to-speech speaks the replies instantly. Supports 4 input modes: voice, live camera with OpenCV, PDF Q&A and web search, plus voice automation to open apps, files and websites.",
       tags: ["Python", "Gemini API", "OpenCV", "STT / TTS"],
       url: ""
     },
     {
       title: "Bank Management System", subtitle: "Desktop Banking App", date: "Jan 2026",
       icon: "assets/icons/java.svg",
-      description: "Java Swing desktop banking application covering 7 core functions: sign-up, PIN login, deposit, withdrawal, fast cash, balance inquiry and PIN change. Backed by a 3-table MySQL database over JDBC, with OOP design and exception handling that blocks overdrawn withdrawals.",
+      description: "Java Swing desktop banking application covering 7 core functions: sign-up, PIN login, deposit, withdrawal, fast cash, balance inquiry and PIN change. Backed by a 3-table MySQL database over JDBC, with OOP design and exception handling that prevents overdrafts.",
       tags: ["Java", "Swing / AWT", "JDBC", "MySQL"],
       url: ""
     },
@@ -187,7 +187,7 @@ const PORTFOLIO = {
 
   // Animated numbers shown under the hero
   stats: [
-    { value: 1, suffix: "+", label: "Years Experience" },
+    { value: 1, suffix: "+", label: "Years of Experience" },
     { value: 3, suffix: "", label: "Companies" },
     { value: 10, suffix: "+", label: "Production Websites" },
     { value: 100, suffix: "+", label: "Bugs Resolved" }
