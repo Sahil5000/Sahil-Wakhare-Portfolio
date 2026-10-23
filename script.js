@@ -89,8 +89,9 @@
 
     // Certifications
     $('certList').innerHTML = d.certifications.map((c) => `
-        <div class="cert-card${c.pdf ? ' has-pdf' : ''}" data-aos="flip-left" data-aos-delay="200"
-             ${c.pdf ? `data-pdf="${esc(c.pdf)}" data-title="${esc(c.title)}" role="button" tabindex="0" aria-label="View ${esc(c.title)} certificate"` : ''}>
+        <div class="cert-card${c.pdf ? ' has-pdf' : c.link ? ' has-link' : ''}" data-aos="flip-left" data-aos-delay="200"
+             ${c.pdf ? `data-pdf="${esc(c.pdf)}" data-title="${esc(c.title)}" role="button" tabindex="0" aria-label="View ${esc(c.title)} certificate"`
+                : c.link ? `data-link="${esc(c.link)}" role="link" tabindex="0" aria-label="Verify ${esc(c.title)} badge"` : ''}>
             <div class="card-icon">${icon(c.icon)}</div>
             <h4>${esc(c.title)}</h4>
             <p>${esc(c.provider)}</p>
@@ -111,13 +112,15 @@
         document.body.style.overflow = 'hidden';
         $('pdfClose').focus();
     };
+    // Cards with a PDF open the viewer; badge-only cards open their verification page
+    const openCert = (card) => card.dataset.pdf ? openPdf(card) : window.open(card.dataset.link, '_blank', 'noopener');
     $('certList').addEventListener('click', (e) => {
-        const card = e.target.closest('.has-pdf');
-        if (card && !e.target.closest('a')) openPdf(card);
+        const card = e.target.closest('.has-pdf, .has-link');
+        if (card && !e.target.closest('a')) openCert(card);
     });
     $('certList').addEventListener('keydown', (e) => {
-        const card = e.target.closest('.has-pdf');
-        if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openPdf(card); }
+        const card = e.target.closest('.has-pdf, .has-link');
+        if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openCert(card); }
     });
     $('experienceList').addEventListener('click', (e) => {
         const btn = e.target.closest('.letter-btn');
