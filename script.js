@@ -128,7 +128,7 @@
                 <img class="project-icon" src="${esc(p.icon)}" alt="" loading="lazy">
                 <div>
                     <h3>${esc(p.title)}</h3>
-                    <span class="project-sub">${esc(p.subtitle)}${p.date ? ` · ${esc(p.date)}` : ''}</span>
+                    <span class="project-sub">${esc(p.subtitle)}${p.date ? ` | ${esc(p.date)}` : ''}</span>
                 </div>
             </div>
             <p>${esc(p.description)}</p>

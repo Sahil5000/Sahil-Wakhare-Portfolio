@@ -1,5 +1,5 @@
 // ============================================================
-//  PORTFOLIO CONTENT — edit only this file to update the site.
+//  PORTFOLIO CONTENT: edit only this file to update the site.
 // ============================================================
 const PORTFOLIO = {
   name: "Sahil Wakhare",                 // short name (navbar + footer)
@@ -19,7 +19,7 @@ const PORTFOLIO = {
     { icon: "fa-comments", label: "LLM Integration" },
     { icon: "fa-cloud", label: "AWS Cloud" },
     { icon: "fa-cubes", label: "Docker & CI/CD" },
-    { icon: "fa-code", label: "React · Next.js" },
+    { icon: "fa-code", label: "React & Next.js" },
     { icon: "fa-leaf", label: "Spring Boot" }
   ],
   resume: "assets/download/Sahil_Wakhare_Resume.pdf", // put your resume PDF at this path
@@ -30,7 +30,7 @@ const PORTFOLIO = {
     details: [
       { label: "Current Role", value: "Associate Developer" },
       { label: "Company", value: "Movinnza" },
-      { label: "Education", value: "B.E. Computer Engineering, SPPU — CGPA 7.76" },
+      { label: "Education", value: "B.E. Computer Engineering, SPPU (CGPA 7.76)" },
       { label: "Location", value: "Pune, Maharashtra" }
     ],
     photo: "assets/images/profile.jpg"   // put your photo at this path (square works best)
@@ -41,7 +41,7 @@ const PORTFOLIO = {
     {
       icon: "https://img.icons8.com/3d-fluency/94/artificial-intelligence.png",
       title: "Generative AI & LLMs",
-      text: "Building intelligent apps with the Gemini API, LLM integration and prompt engineering — from voice & vision assistants to AI-powered product features.",
+      text: "Building intelligent apps with the Gemini API, LLM integration and prompt engineering, from voice and vision assistants to AI-powered product features.",
       tags: ["Gemini API", "LLMs", "Prompting", "OpenCV"]
     },
     {
@@ -59,12 +59,12 @@ const PORTFOLIO = {
     {
       icon: "https://img.icons8.com/3d-fluency/94/chatbot.png",
       title: "AI-Assisted Coding",
-      text: "Shipping faster with ChatGPT, Claude and Gemini for coding, debugging, testing and documentation — with human review on every change.",
+      text: "Shipping faster with ChatGPT, Claude and Gemini for coding, debugging, testing and documentation, with human review on every change.",
       tags: ["ChatGPT", "Claude", "Gemini", "Code Review"]
     }
   ],
 
-  // level = 0–100 (adjust to how confident you feel in each)
+  // level = 0 to 100 (adjust to how confident you feel in each)
   skills: [
     { name: "Gemini API, LLM Integration, Prompt Engineering", level: 85 },
     { name: "Generative AI, OpenCV, Speech Recognition", level: 75 },
@@ -116,7 +116,7 @@ const PORTFOLIO = {
     { title: "Java + Spring Boot, Spring MVC & Hibernate", provider: "Udemy", icon: "https://img.icons8.com/color/96/spring-logo.png", pdf: "assets/certificates/udemy-java-spring-boot.pdf", link: "https://ude.my/UC-a6a52855-ec7f-447b-83f1-71f79ddd1ec5" }
   ],
 
-  // url: GitHub / live link — leave "" to hide the button
+  // url: GitHub / live link, leave "" to hide the button
   projects: [
     {
       title: "Curated Canopy Safaris", subtitle: "Safari Booking Website", date: "Live",
@@ -128,7 +128,7 @@ const PORTFOLIO = {
     {
       title: "Cortex AI", subtitle: "Voice & Vision Assistant", date: "Mar 2026",
       icon: "https://img.icons8.com/3d-fluency/94/robot-2.png",
-      description: "LLM-powered desktop assistant with a real-time voice pipeline: speech recognition turns commands into text, the Gemini API generates answers and text-to-speech replies instantly. Supports 4 input modes — voice, live camera with OpenCV, PDF Q&A and web search — plus voice automation to open apps, files and websites.",
+      description: "LLM-powered desktop assistant with a real-time voice pipeline: speech recognition turns commands into text, the Gemini API generates answers and text-to-speech replies instantly. Supports 4 input modes: voice, live camera with OpenCV, PDF Q&A and web search, plus voice automation to open apps, files and websites.",
       tags: ["Python", "Gemini API", "OpenCV", "STT / TTS"],
       url: ""
     },
@@ -137,13 +137,6 @@ const PORTFOLIO = {
       icon: "https://img.icons8.com/3d-fluency/94/bank-building.png",
       description: "Java Swing desktop banking application covering 7 core functions: sign-up, PIN login, deposit, withdrawal, fast cash, balance inquiry and PIN change. Backed by a 3-table MySQL database over JDBC, with OOP design and exception handling that blocks overdrawn withdrawals.",
       tags: ["Java", "Swing / AWT", "JDBC", "MySQL"],
-      url: ""
-    },
-    {
-      title: "Nexus 360", subtitle: "SaaS Platform · Movinnza", date: "2026 – Present",
-      icon: "https://img.icons8.com/3d-fluency/94/cloud-development.png",
-      description: "Shipping features for Movinnza's Nexus 360 SaaS platform — building full-stack modules, integrating REST and third-party APIs, and resolving client-reported issues in production.",
-      tags: ["React", "Next.js", "Node.js", "GraphQL"],
       url: ""
     },
     {
