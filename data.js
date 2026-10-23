@@ -91,12 +91,14 @@ const PORTFOLIO = {
       date: "Mar 2026 - Sep 2026",
       title: "Associate Software Engineer Intern",
       company: "Kshetrapati Industries Pvt. Ltd., Pune",
+      letter: "assets/letters/kshetrapati-experience-letter.pdf",
       description: "Engineered Java-based enterprise modules for workflow automation, customer management, reporting dashboards and operational tracking. Automated database-driven business workflows to reduce manual data entry, and audited code (including AI-assisted code) to catch logic and security flaws before release."
     },
     {
       date: "Sep 2025 - Feb 2026",
       title: "Software Engineer Intern",
       company: "SETTribe IT Solutions, Pune",
+      letter: "assets/letters/settribe-experience-letter.pdf",
       description: "Developed government web platform modules using Java, Spring Boot, SQL and REST APIs. Optimized database queries to reduce response time, resolved defects to strengthen backend reliability, and tested application code for security risks and quality before deployment."
     }
   ],

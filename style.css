@@ -207,6 +207,15 @@ hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
 #projects .projects-card { box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); }
 .cert-card .preview, .projects-card .preview { display: inline-block; font-weight: 600; font-size: 13px; }
 
+.letter-btn {
+    margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 18px; border-radius: 50px; cursor: pointer;
+    font: 600 13px 'Poppins', sans-serif; color: var(--accent);
+    background: rgba(0, 132, 204, 0.08); border: 1px solid rgba(0, 132, 204, 0.25);
+    transition: 0.3s;
+}
+.letter-btn:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
+.letter-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .cert-card.has-pdf { cursor: pointer; }
 .cert-card.has-pdf:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 

@@ -72,6 +72,8 @@
             <h3>${esc(e.title)}</h3>
             <h4>${esc(e.company)}</h4>
             <p>${esc(e.description)}</p>
+            ${e.letter ? `<button type="button" class="letter-btn" data-pdf="${esc(e.letter)}" data-title="Experience Letter: ${esc(e.company.split(',')[0])}">
+                <i class="fa fa-file-text-o" aria-hidden="true"></i> View Experience Letter</button>` : ''}
         </div>`).join('');
 
     // Achievements (hidden when empty)
@@ -116,6 +118,10 @@
     $('certList').addEventListener('keydown', (e) => {
         const card = e.target.closest('.has-pdf');
         if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openPdf(card); }
+    });
+    $('experienceList').addEventListener('click', (e) => {
+        const btn = e.target.closest('.letter-btn');
+        if (btn) openPdf(btn);
     });
     $('pdfClose').addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
