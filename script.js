@@ -80,6 +80,24 @@
                 <i class="fa fa-file-text-o" aria-hidden="true"></i> View Experience Letter</button>` : ''}
         </div>`).join('');
 
+    // Education
+    $('educationList').innerHTML = d.education.map((ed) => `
+        <div class="edu-card" data-aos="fade-up">
+            <div class="edu-icon"><i class="fa ${esc(ed.icon)}" aria-hidden="true"></i></div>
+            <div class="edu-body">
+                <span class="card-date">${esc(ed.date)}</span>
+                <h3>${esc(ed.degree)}</h3>
+                <h4>${esc(ed.institute)}</h4>
+                <span class="edu-board">${esc(ed.board)}</span>
+                <div class="edu-results">${ed.results.map((r) => `<span>${esc(r)}</span>`).join('')}</div>
+                <p>${esc(ed.description)}</p>
+                <div class="edu-docs">${ed.docs.map((doc) => `
+                    <button type="button" class="letter-btn" data-pdf="${esc(doc.file)}" data-title="${esc(doc.label)}: ${esc(ed.degree)}">
+                        <i class="fa ${/\.pdf$/i.test(doc.file) ? 'fa-file-pdf-o' : 'fa-file-image-o'}" aria-hidden="true"></i> ${esc(doc.label)}</button>`).join('')}
+                </div>
+            </div>
+        </div>`).join('');
+
     // Achievements (hidden when empty)
     if (d.achievements.length) {
         $('achievementsList').innerHTML = d.achievements.map((src) => `
@@ -111,7 +129,7 @@
         if (window.matchMedia('(max-width: 768px)').matches) { window.open(pdf, '_blank', 'noopener'); return; }
         $('pdfTitle').textContent = card.dataset.title;
         $('pdfOpen').href = pdf;
-        frame.src = pdf + '#view=FitH';
+        frame.src = /\.pdf$/i.test(pdf) ? pdf + '#view=FitH' : pdf;
         modal.hidden = false;
         document.body.style.overflow = 'hidden';
         $('pdfClose').focus();
@@ -126,10 +144,10 @@
         const card = e.target.closest('.has-pdf, .has-link');
         if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openCert(card); }
     });
-    $('experienceList').addEventListener('click', (e) => {
+    ['experienceList', 'educationList'].forEach((id) => $(id).addEventListener('click', (e) => {
         const btn = e.target.closest('.letter-btn');
         if (btn) openPdf(btn);
-    });
+    }));
     $('pdfClose').addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });

@@ -105,6 +105,36 @@ const PORTFOLIO = {
     }
   ],
 
+  // docs: files shown with a "View" button (PDF or image)
+  education: [
+    {
+      date: "2021 - 2025",
+      degree: "Bachelor of Engineering (Computer Engineering)",
+      institute: "G.S.M. Trust's Parvatibai Genba Moze College of Engineering, Wagholi, Pune",
+      board: "Savitribai Phule Pune University (SPPU)",
+      icon: "fa-graduation-cap",
+      results: ["CGPA 7.76", "First Class with Distinction", "Final Year SGPA 9.00"],
+      description: "Coursework included Machine Learning, Deep Learning, Natural Language Processing, Cyber Security & Digital Forensics, Blockchain Technology, High Performance Computing, Design & Analysis of Algorithms and Software Testing.",
+      docs: [
+        { label: "Degree Certificate", file: "assets/education/be-degree-certificate.jpg" },
+        { label: "Passing Certificate", file: "assets/education/be-passing-certificate.pdf" },
+        { label: "Marksheet", file: "assets/education/be-marksheet.pdf" }
+      ]
+    },
+    {
+      date: "2021",
+      degree: "Higher Secondary Certificate (HSC), Science",
+      institute: "Pune Divisional Board",
+      board: "Maharashtra State Board of Secondary and Higher Secondary Education",
+      icon: "fa-book",
+      results: ["73.00%"],
+      description: "Science stream with English, Mathematics & Statistics, Physics, Chemistry and Electronics.",
+      docs: [
+        { label: "Marksheet", file: "assets/education/hsc-marksheet.pdf" }
+      ]
+    }
+  ],
+
   // Screenshots of awards / appreciation mails / certificates. Leave [] to hide the section.
   achievements: [
     // "assets/images/achievements/a1.jpg",
