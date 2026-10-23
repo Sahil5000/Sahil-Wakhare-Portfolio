@@ -133,7 +133,7 @@
             </div>
             <p>${esc(p.description)}</p>
             <div class="focus-tags">${(p.tags || []).map((t) => `<span>${esc(t)}</span>`).join('')}</div>
-            ${p.url ? `<a class="project-link" href="${esc(p.url)}" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> ${esc(p.cta || 'View Code')} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>` : ''}
+            ${p.url ? `<a class="project-link" href="${esc(p.url)}" target="_blank" rel="noopener"><i class="fa ${esc(p.ctaIcon || 'fa-github')}" aria-hidden="true"></i> ${esc(p.cta || 'View Code')} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>` : ''}
         </article>`).join('');
 
     // Stats counter (counts up when visible)

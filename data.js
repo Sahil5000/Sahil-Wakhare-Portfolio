@@ -119,6 +119,13 @@ const PORTFOLIO = {
   // url: GitHub / live link — leave "" to hide the button
   projects: [
     {
+      title: "Curated Canopy Safaris", subtitle: "Safari Booking Website", date: "Live",
+      icon: "https://img.icons8.com/3d-fluency/94/elephant.png",
+      description: "Wildlife safari booking website with safari packages, detailed itineraries, pricing, blog, contact forms and booking flow with Easebuzz payment gateway. Built on Next.js for routing and rendering, with SEO through Next.js Metadata and JSON-LD structured data, and Sharp image optimization.",
+      tags: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Easebuzz"],
+      url: "https://curatedcanopysafaris.com/", cta: "Visit Website", ctaIcon: "fa-globe"
+    },
+    {
       title: "Cortex AI", subtitle: "Voice & Vision Assistant", date: "Mar 2026",
       icon: "https://img.icons8.com/3d-fluency/94/robot-2.png",
       description: "LLM-powered desktop assistant with a real-time voice pipeline: speech recognition turns commands into text, the Gemini API generates answers and text-to-speech replies instantly. Supports 4 input modes — voice, live camera with OpenCV, PDF Q&A and web search — plus voice automation to open apps, files and websites.",
@@ -144,7 +151,7 @@ const PORTFOLIO = {
       icon: "https://img.icons8.com/3d-fluency/94/github.png",
       description: "Explore source code for my Java, Spring Boot and web projects, along with practice builds and experiments.",
       tags: ["Java", "Spring Boot", "HTML / CSS", "JavaScript"],
-      url: "https://github.com/Sahil5000", cta: "View GitHub"
+      url: "https://github.com/Sahil5000", cta: "View GitHub", ctaIcon: "fa-github"
     }
   ],
 

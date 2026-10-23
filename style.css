@@ -257,6 +257,8 @@ hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
 
 /* Projects */
 .project-grid { gap: 30px; }
+/* Odd number of projects: let the last card span the full row */
+.project-grid .project-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project-card {
     background: var(--white); border-radius: 15px; padding: 30px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06); transition: 0.4s;
