@@ -23,7 +23,7 @@ const PORTFOLIO = {
     { icon: "fa-leaf", label: "Spring Boot" }
   ],
   resume: "assets/download/Sahil_Wakhare_Resume.pdf", // put your resume PDF at this path
-  footerText: "Developed By",
+  footerText: "Code. Build. Integrate AI. Repeat",
 
   about: {
     bio: "Software Developer with 1+ years of hands-on experience across 3 companies. I have delivered 10+ production websites and web apps, built 7+ Java modules for enterprise and government platforms, and resolved 100+ bugs and issues. I work with Java, Spring Boot, JavaScript, React.js, Next.js, Node.js, PostgreSQL, MySQL, REST APIs and GraphQL, with a focus on AI-driven development and LLM integration using the Gemini API in Python.",
