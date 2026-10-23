@@ -109,6 +109,10 @@
                     </div>
                     ${ring(ed.score)}
                 </div>
+                ${ed.subjects ? `<div class="edu-subjects">
+                    <h5>Subjects</h5>
+                    <div class="edu-subject-list">${ed.subjects.map((s) => `<span>${esc(s)}</span>`).join('')}</div>
+                </div>` : ''}
                 <div class="edu-docs">${ed.docs.map((doc) => `
                     <button type="button" class="letter-btn" data-pdf="${esc(doc.file)}" data-title="${esc(doc.label)}: ${esc(ed.degree)}">
                         <i class="fa ${/\.pdf$/i.test(doc.file) ? 'fa-file-pdf-o' : 'fa-file-image-o'}" aria-hidden="true"></i> ${esc(doc.label)}</button>`).join('')}

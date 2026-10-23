@@ -114,6 +114,7 @@ const PORTFOLIO = {
       logo: "assets/icons/sppu-logo.png",
       score: { value: 7.76, max: 10, label: "CGPA" },
       results: ["First Class with Distinction"],
+      subjects: ["Machine Learning", "Deep Learning", "Natural Language Processing", "Cyber Security & Digital Forensics", "Blockchain Technology", "High Performance Computing", "Design & Analysis of Algorithms", "Software Testing & Quality Assurance", "Business Intelligence"],
       docs: [
         { label: "Degree Certificate", file: "assets/education/be-degree-certificate.jpg" },
         { label: "Passing Certificate", file: "assets/education/be-passing-certificate.pdf" },
@@ -128,6 +129,7 @@ const PORTFOLIO = {
       logo: "assets/icons/msbshse-logo.png",
       score: { value: 73, max: 100, label: "Percent", suffix: "%" },
       results: ["Science Stream"],
+      subjects: ["Physics", "Chemistry", "Mathematics & Statistics", "Electronics", "English"],
       docs: [
         { label: "Marksheet", file: "assets/education/hsc-marksheet.pdf" }
       ]
