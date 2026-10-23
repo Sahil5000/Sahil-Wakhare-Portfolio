@@ -11,7 +11,7 @@ const PORTFOLIO = {
     "AI-Powered Applications",
     "LLM & Gemini Integrations",
     "Cloud-Ready Solutions on AWS",
-    "Full-Stack Web Apps",
+    "Full-Stack Web Applications",
     "Smart Automation Tools"
   ],
   // Hero badges (logo image path or Font Awesome 4.7 icon name)
