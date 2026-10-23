@@ -10,10 +10,11 @@
     // Simple text bindings
     document.querySelectorAll('[data-bind]').forEach((el) => {
         const key = el.dataset.bind;
-        const prefix = d.honorific ? d.honorific + ' ' : '';
-        el.textContent = key === 'name-upper' ? (prefix + d.name).toUpperCase()
-            : key === 'fullName' ? prefix + d.fullName
-            : get(key);
+        // Honorific keeps its own case ("Er.") while the name stays uppercase
+        const prefix = d.honorific ? `<span class="honorific">${esc(d.honorific)}</span> ` : '';
+        if (key === 'name-upper') el.innerHTML = prefix + esc(d.name.toUpperCase());
+        else if (key === 'fullName') el.innerHTML = prefix + esc(d.fullName);
+        else el.textContent = get(key);
     });
     document.title = `${d.name} | Portfolio`;
     $('resumeBtn').href = d.resume;
