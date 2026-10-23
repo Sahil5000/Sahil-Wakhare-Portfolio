@@ -116,6 +116,7 @@ const PORTFOLIO = {
     { title: "Google AI Essentials", provider: "Google via Coursera", icon: "https://img.icons8.com/color/96/google-logo.png", pdf: "assets/certificates/google-ai-essentials.pdf", link: "https://coursera.org/verify/specialization/CI7DVZJK88ET" },
     { title: "Generative AI Productivity Skills", provider: "Microsoft & LinkedIn", icon: "https://img.icons8.com/color/96/microsoft.png", pdf: "assets/certificates/microsoft-linkedin-generative-ai.pdf" },
     { title: "Java + Spring Boot, Spring MVC & Hibernate", provider: "Udemy", icon: "https://img.icons8.com/color/96/spring-logo.png", pdf: "assets/certificates/udemy-java-spring-boot.pdf", link: "https://ude.my/UC-a6a52855-ec7f-447b-83f1-71f79ddd1ec5" },
+    { title: "Cyber Job Simulation", provider: "Deloitte via Forage", icon: "assets/certificates/deloitte-logo.svg", pdf: "assets/certificates/deloitte-cyber-job-simulation.pdf" },
     { title: "Postman API Fundamentals Student Expert", provider: "Postman", icon: "assets/certificates/postman-api-fundamentals-badge.png", link: "https://api.badgr.io/public/assertions/EXEIn5h5QuyzwCHz1z--kQ" }
   ],
 

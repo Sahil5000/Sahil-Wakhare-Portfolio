@@ -218,8 +218,8 @@ hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
 .letter-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 /* Certifications: flexible row so any count stays centred */
 #certList { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-#certList .cert-card { flex: 0 0 calc((100% - 80px) / 5); padding: 28px 18px; height: auto; }
-@media (max-width: 991px) { #certList .cert-card { flex-basis: calc((100% - 40px) / 3); } }
+#certList .cert-card { flex: 0 0 calc((100% - 40px) / 3); padding: 28px 18px; height: auto; }
+#certList .card-icon img[src$="deloitte-logo.svg"] { width: 120px; }
 @media (max-width: 600px) { #certList .cert-card { flex-basis: 100%; } }
 .cert-card.has-pdf, .cert-card.has-link { cursor: pointer; }
 .cert-card.has-pdf:focus-visible, .cert-card.has-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
