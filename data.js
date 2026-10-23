@@ -4,6 +4,7 @@
 const PORTFOLIO = {
   name: "Sahil Wakhare",                 // short name (navbar + footer)
   fullName: "Sahil Namdev Wakhare",      // hero heading
+  honorific: "Er.",                      // shown before the name in the hero and navbar
   tagline: "Software Developer | AI & Cloud Focused",
   // Hero typing animation: "I build ..."
   typedRoles: [
