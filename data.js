@@ -116,12 +116,44 @@ const PORTFOLIO = {
     { title: "Java + Spring Boot, Spring MVC & Hibernate", provider: "Udemy", icon: "https://img.icons8.com/color/96/spring-logo.png", pdf: "assets/certificates/udemy-java-spring-boot.pdf", link: "https://ude.my/UC-a6a52855-ec7f-447b-83f1-71f79ddd1ec5" }
   ],
 
-  // url: leave "" to hide the Preview link
+  // url: GitHub / live link — leave "" to hide the button
   projects: [
-    { title: "Cortex AI", subtitle: "Voice & Vision Assistant — Python, OpenCV, Gemini API", url: "", icon: "https://img.icons8.com/3d-fluency/94/robot-2.png" },
-    { title: "Bank Management System", subtitle: "Java Swing, AWT, JDBC, MySQL", url: "", icon: "https://img.icons8.com/3d-fluency/94/bank-building.png" },
-    { title: "Nexus 360", subtitle: "SaaS Platform — Movinnza", url: "", icon: "https://img.icons8.com/3d-fluency/94/cloud-development.png" },
-    { title: "Sahil Wakhare", subtitle: "GitHub", url: "https://github.com/Sahil5000", icon: "https://img.icons8.com/3d-fluency/94/github.png" }
+    {
+      title: "Cortex AI", subtitle: "Voice & Vision Assistant", date: "Mar 2026",
+      icon: "https://img.icons8.com/3d-fluency/94/robot-2.png",
+      description: "LLM-powered desktop assistant with a real-time voice pipeline: speech recognition turns commands into text, the Gemini API generates answers and text-to-speech replies instantly. Supports 4 input modes — voice, live camera with OpenCV, PDF Q&A and web search — plus voice automation to open apps, files and websites.",
+      tags: ["Python", "Gemini API", "OpenCV", "STT / TTS"],
+      url: ""
+    },
+    {
+      title: "Bank Management System", subtitle: "Desktop Banking App", date: "Jan 2026",
+      icon: "https://img.icons8.com/3d-fluency/94/bank-building.png",
+      description: "Java Swing desktop banking application covering 7 core functions: sign-up, PIN login, deposit, withdrawal, fast cash, balance inquiry and PIN change. Backed by a 3-table MySQL database over JDBC, with OOP design and exception handling that blocks overdrawn withdrawals.",
+      tags: ["Java", "Swing / AWT", "JDBC", "MySQL"],
+      url: ""
+    },
+    {
+      title: "Nexus 360", subtitle: "SaaS Platform · Movinnza", date: "2026 – Present",
+      icon: "https://img.icons8.com/3d-fluency/94/cloud-development.png",
+      description: "Shipping features for Movinnza's Nexus 360 SaaS platform — building full-stack modules, integrating REST and third-party APIs, and resolving client-reported issues in production.",
+      tags: ["React", "Next.js", "Node.js", "GraphQL"],
+      url: ""
+    },
+    {
+      title: "More on GitHub", subtitle: "github.com/Sahil5000", date: "",
+      icon: "https://img.icons8.com/3d-fluency/94/github.png",
+      description: "Explore source code for my Java, Spring Boot and web projects, along with practice builds and experiments.",
+      tags: ["Java", "Spring Boot", "HTML / CSS", "JavaScript"],
+      url: "https://github.com/Sahil5000", cta: "View GitHub"
+    }
+  ],
+
+  // Animated numbers shown under the hero
+  stats: [
+    { value: 1, suffix: "+", label: "Years Experience" },
+    { value: 3, suffix: "", label: "Companies" },
+    { value: 10, suffix: "+", label: "Production Websites" },
+    { value: 100, suffix: "+", label: "Bugs Resolved" }
   ],
 
   contact: {

@@ -122,13 +122,43 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
 
     // Projects
-    $('projectList').innerHTML = d.projects.map((p) => `
-        <div class="projects-card" data-aos="flip-left" data-aos-delay="200">
-            <div class="card-icon">${icon(p.icon || 'fa-code')}</div>
-            <h4>${esc(p.title)}</h4>
-            <p>${esc(p.subtitle)}</p>
-            ${p.url ? `<a class="preview" href="${esc(p.url)}" target="_blank" rel="noopener">Preview <i class="fa fa-external-link"></i></a>` : ''}
+    $('projectList').innerHTML = d.projects.map((p, n) => `
+        <article class="project-card" data-aos="fade-up" data-aos-delay="${(n % 2) * 100}">
+            <div class="project-head">
+                <img class="project-icon" src="${esc(p.icon)}" alt="" loading="lazy">
+                <div>
+                    <h3>${esc(p.title)}</h3>
+                    <span class="project-sub">${esc(p.subtitle)}${p.date ? ` · ${esc(p.date)}` : ''}</span>
+                </div>
+            </div>
+            <p>${esc(p.description)}</p>
+            <div class="focus-tags">${(p.tags || []).map((t) => `<span>${esc(t)}</span>`).join('')}</div>
+            ${p.url ? `<a class="project-link" href="${esc(p.url)}" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> ${esc(p.cta || 'View Code')} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>` : ''}
+        </article>`).join('');
+
+    // Stats counter (counts up when visible)
+    $('statsList').innerHTML = d.stats.map((s) => `
+        <div class="stat">
+            <span class="stat-num" data-target="${Number(s.value)}" data-suffix="${esc(s.suffix)}">0${esc(s.suffix)}</span>
+            <span class="stat-label">${esc(s.label)}</span>
         </div>`).join('');
+    const countUp = (el) => {
+        const target = Number(el.dataset.target), suffix = el.dataset.suffix, dur = 1600;
+        let start = null;
+        const tick = (now) => {
+            if (start === null) start = now;
+            const t = Math.min(Math.max((now - start) / dur, 0), 1);
+            el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))) + suffix;
+            if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        // Guarantee the exact final number even if the last frame is skipped
+        setTimeout(() => { el.textContent = target + suffix; }, dur + 150);
+    };
+    const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) { countUp(en.target); statObserver.unobserve(en.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-num').forEach((el) => statObserver.observe(el));
 
     // Contact
     const c = d.contact;
