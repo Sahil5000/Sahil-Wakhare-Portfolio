@@ -53,7 +53,7 @@ const PORTFOLIO = {
     },
     {
       logos: ["react", "nextjs", "spring"],
-      title: "Full-Stack Web Apps",
+      title: "Full-Stack Web Applications",
       text: "Production-grade websites and web apps with React, Next.js, Node.js and Spring Boot, backed by REST & GraphQL APIs.",
       tags: ["React", "Next.js", "Spring Boot", "GraphQL"]
     },
