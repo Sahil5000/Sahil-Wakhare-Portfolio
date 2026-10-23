@@ -119,7 +119,7 @@ img { max-width: 100%; display: block; }
 
 /* What I Do */
 .focus-card {
-    background: var(--white); border-radius: 15px; padding: 28px 24px 26px;
+    background: var(--white); border-radius: 15px; padding: 28px 20px 26px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); transition: 0.4s;
     border-top: 4px solid transparent; height: 100%;
     display: flex; flex-direction: column;
@@ -138,7 +138,7 @@ img { max-width: 100%; display: block; }
 .focus-card h3 { font-size: 17px; line-height: 1.3; color: var(--primary); margin: 22px 0 10px; }
 .focus-card p {
     flex: 1; font-size: 14px; line-height: 1.65; color: var(--text-muted); margin: 0 0 20px;
-    text-align: left;
+    text-align: justify; text-justify: inter-word; hyphens: none;
 }
 .focus-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .focus-tags span { font-size: 12px; font-weight: 600; line-height: 1.4; color: var(--accent); background: rgba(0, 132, 204, 0.08); padding: 5px 11px; border-radius: 50px; }
@@ -469,13 +469,15 @@ hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
 .project-link:hover .fa-arrow-right { transform: translateX(4px); }
 
 /* Contact */
-.contact-item { text-align: center; padding: 30px; border-radius: 15px; background: var(--white); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); }
+.contact-item { display: block; text-align: center; padding: 30px; border-radius: 15px; background: var(--white); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); cursor: pointer; border: 1px solid transparent; }
 .contact-logo { width: 44px; height: 44px; margin: 0 auto; object-fit: contain; transition: transform 0.4s; }
 .contact-item { transition: 0.4s; }
-.contact-item:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(0, 0, 0, 0.1); }
+.contact-item:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 16px 34px rgba(0, 0, 0, 0.1); }
+.contact-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .contact-item:hover .contact-logo { transform: scale(1.12); }
 .contact-item h4 { margin: 10px 0 4px; color: var(--primary); }
-.contact-item a, .contact-item p { color: var(--text-muted); margin: 0; word-break: break-word; }
+.contact-value { display: block; color: var(--text-muted); word-break: break-word; transition: color 0.3s; }
+.contact-item:hover .contact-value { color: var(--accent); }
 .collab { margin-top: 60px; }
 .collab h3 { color: var(--primary); font-size: 24px; margin: 0 0 8px; }
 .collab-sub { color: var(--text-muted); margin: 0 0 25px; }
@@ -514,7 +516,7 @@ footer p { margin: 0; }
     .nav-links li:last-child a { border-bottom: 0; }
     /* iOS/Android don't support fixed backgrounds reliably */
 
-    .contact-item a { display: inline-block; padding: 10px 6px; }
+    .contact-item { padding: 24px 18px; }
 }
 @media (max-width: 600px) {
     section { padding: 70px 0; }
@@ -544,4 +546,25 @@ footer p { margin: 0; }
 @media (max-width: 420px) {
     .two-col { grid-template-columns: 1fr; gap: 12px; }
     .header-text h1 { font-size: 28px; }
+}
+
+/* What I Do: 2 columns on mid-size screens so cards stay wide enough for justified text */
+@media (min-width: 601px) and (max-width: 1199px) {
+    #focusList { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+}
+
+/* Navbar: 8 links don't fit below 1200px, so switch to the hamburger menu there */
+.brand, .nav-links a { white-space: nowrap; }
+@media (max-width: 1199px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: var(--white);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08); padding: 10px 16px;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 12px 4px; border-bottom: 1px solid #f0f0f0; }
+    .nav-links a::after { display: none; }
+    .nav-links li:last-child a { border-bottom: 0; }
+    .nav-inner { position: relative; }
 }

@@ -240,11 +240,11 @@
 
     // Contact
     const c = d.contact;
-    $('cPhone').textContent = c.phone;
+    $('cPhoneText').textContent = c.phone;
     $('cPhone').href = `tel:${c.phone.replace(/\s+/g, '')}`;
-    $('cEmail').textContent = c.email;
+    $('cEmailText').textContent = c.email;
     $('cEmail').href = `mailto:${c.email}`;
-    $('cLocation').textContent = c.location;
+    $('cLocationText').textContent = c.location;
     $('cLocation').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.mapAddress || c.location)}`;
     $('cWhatsapp').href = `https://wa.me/${c.whatsapp.replace(/\D/g, '')}`;
     $('cLinkedin').href = c.linkedin;

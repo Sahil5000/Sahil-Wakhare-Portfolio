@@ -42,13 +42,13 @@ const PORTFOLIO = {
     {
       logos: ["gemini", "python", "opencv"],
       title: "Generative AI & LLMs",
-      text: "Building intelligent apps with the Gemini API, LLM integration and prompt engineering, from voice and vision assistants to AI-powered product features.",
+      text: "I build smart apps using the Gemini API, LLMs and prompt engineering, from voice and vision assistants to useful AI features inside real products.",
       tags: ["Gemini API", "LLMs", "Prompting", "OpenCV"]
     },
     {
       logos: ["aws", "docker", "githubactions"],
       title: "Cloud & DevOps",
-      text: "AWS Certified. Deploying scalable, secure applications on AWS with Docker containers and automated CI/CD pipelines.",
+      text: "I am AWS certified and I deploy secure, scalable apps to the cloud with Docker, Git, GitHub and automated CI/CD pipelines for fast releases.",
       tags: ["AWS", "Docker", "CI/CD", "GitHub"]
     },
     {
@@ -60,7 +60,7 @@ const PORTFOLIO = {
     {
       logos: ["openai", "claude", "gemini"],
       title: "AI-Assisted Coding",
-      text: "Shipping faster with ChatGPT, Claude and Gemini for coding, debugging, testing and documentation, with human review on every change.",
+      text: "I use ChatGPT, Claude and Gemini to write, debug, test and document code faster, and I review every AI suggestion by hand before it ships.",
       tags: ["ChatGPT", "Claude", "Gemini", "Code Review"]
     }
   ],
