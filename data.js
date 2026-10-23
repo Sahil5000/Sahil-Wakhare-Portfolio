@@ -14,14 +14,14 @@ const PORTFOLIO = {
     "Full-Stack Web Apps",
     "Smart Automation Tools"
   ],
-  // Hero badges (Font Awesome 4.7 icon names)
+  // Hero badges (logo image path or Font Awesome 4.7 icon name)
   heroChips: [
-    { icon: "fa-microchip", label: "Generative AI" },
-    { icon: "fa-comments", label: "LLM Integration" },
-    { icon: "fa-cloud", label: "AWS Cloud" },
-    { icon: "fa-cubes", label: "Docker & CI/CD" },
-    { icon: "fa-code", label: "React & Next.js" },
-    { icon: "fa-leaf", label: "Spring Boot" }
+    { icon: "assets/icons/gemini.svg", label: "Generative AI" },
+    { icon: "assets/icons/python.svg", label: "LLM Integration" },
+    { icon: "assets/icons/aws.svg", label: "AWS Cloud" },
+    { icon: "assets/icons/docker.svg", label: "Docker & CI/CD" },
+    { icon: "assets/icons/react.svg", label: "React & Next.js" },
+    { icon: "assets/icons/spring.svg", label: "Spring Boot" }
   ],
   resume: "assets/download/Sahil_Wakhare_Resume.pdf", // put your resume PDF at this path
   footerText: "Code. Build. Integrate AI. Repeat",
@@ -40,45 +40,45 @@ const PORTFOLIO = {
   // "What I Do" focus cards
   focus: [
     {
-      icon: "https://img.icons8.com/3d-fluency/94/artificial-intelligence.png",
+      logos: ["gemini", "python", "opencv"],
       title: "Generative AI & LLMs",
       text: "Building intelligent apps with the Gemini API, LLM integration and prompt engineering, from voice and vision assistants to AI-powered product features.",
       tags: ["Gemini API", "LLMs", "Prompting", "OpenCV"]
     },
     {
-      icon: "https://img.icons8.com/3d-fluency/94/cloud-development.png",
+      logos: ["aws", "docker", "githubactions"],
       title: "Cloud & DevOps",
       text: "AWS Certified. Deploying scalable, secure applications on AWS with Docker containers and automated CI/CD pipelines.",
       tags: ["AWS", "Docker", "CI/CD", "GitHub"]
     },
     {
-      icon: "https://img.icons8.com/3d-fluency/94/web-design.png",
+      logos: ["react", "nextjs", "spring"],
       title: "Full-Stack Web Apps",
       text: "Production-grade websites and web apps with React, Next.js, Node.js and Spring Boot, backed by REST & GraphQL APIs.",
       tags: ["React", "Next.js", "Spring Boot", "GraphQL"]
     },
     {
-      icon: "https://img.icons8.com/3d-fluency/94/chatbot.png",
+      logos: ["openai", "claude", "gemini"],
       title: "AI-Assisted Coding",
       text: "Shipping faster with ChatGPT, Claude and Gemini for coding, debugging, testing and documentation, with human review on every change.",
       tags: ["ChatGPT", "Claude", "Gemini", "Code Review"]
     }
   ],
 
-  // level = 0 to 100 (adjust to how confident you feel in each)
+  // level = 0 to 100; logos = file names in assets/icons (without extension)
   skills: [
-    { name: "Gemini API, LLM Integration, Prompt Engineering", level: 85 },
-    { name: "Generative AI, OpenCV, Speech Recognition", level: 75 },
-    { name: "AWS Cloud (EC2, S3, IAM)", level: 75 },
-    { name: "Docker, CI/CD, Git, GitHub", level: 75 },
-    { name: "AI-Assisted Coding (ChatGPT, Claude, Gemini)", level: 90 },
-    { name: "Python", level: 75 },
-    { name: "Java, OOP, Multithreading", level: 85 },
-    { name: "Spring Boot, Spring MVC, Hibernate", level: 80 },
-    { name: "React.js, Next.js", level: 80 },
-    { name: "Node.js, REST APIs, GraphQL", level: 75 },
-    { name: "JavaScript, HTML5, CSS3", level: 85 },
-    { name: "PostgreSQL, MySQL, SQL", level: 80 }
+    { name: "Gemini API, LLM Integration, Prompt Engineering", level: 85, logos: ["gemini"] },
+    { name: "Generative AI, OpenCV, Speech Recognition", level: 75, logos: ["opencv"] },
+    { name: "AWS Cloud (EC2, S3, IAM)", level: 75, logos: ["aws"] },
+    { name: "Docker, CI/CD, Git, GitHub", level: 75, logos: ["docker", "git", "github"] },
+    { name: "AI-Assisted Coding (ChatGPT, Claude, Gemini)", level: 90, logos: ["openai", "claude"] },
+    { name: "Python", level: 75, logos: ["python"] },
+    { name: "Java, OOP, Multithreading", level: 85, logos: ["java"] },
+    { name: "Spring Boot, Spring MVC, Hibernate", level: 80, logos: ["spring", "hibernate"] },
+    { name: "React.js, Next.js", level: 80, logos: ["react", "nextjs"] },
+    { name: "Node.js, REST APIs, GraphQL", level: 75, logos: ["nodejs", "graphql"] },
+    { name: "JavaScript, HTML5, CSS3", level: 85, logos: ["javascript", "html5", "css3"] },
+    { name: "PostgreSQL, MySQL, SQL", level: 80, logos: ["postgresql", "mysql"] }
   ],
 
   experience: [
@@ -111,9 +111,19 @@ const PORTFOLIO = {
       degree: "Bachelor of Engineering (Computer Engineering)",
       institute: "G.S.M. Trust's Parvatibai Genba Moze College of Engineering, Wagholi, Pune",
       board: "Savitribai Phule Pune University (SPPU)",
-      icon: "fa-graduation-cap",
-      results: ["CGPA 7.76", "First Class with Distinction", "Final Year SGPA 9.00"],
-      description: "Coursework included Machine Learning, Deep Learning, Natural Language Processing, Cyber Security & Digital Forensics, Blockchain Technology, High Performance Computing, Design & Analysis of Algorithms and Software Testing.",
+      logo: "assets/icons/sppu-logo.png",
+      score: { value: 7.76, max: 10, label: "CGPA" },
+      results: ["First Class with Distinction", "Final Year SGPA 9.00"],
+      journey: [
+        { label: "FE", value: 7.61 }, { label: "SE", value: 6.57 },
+        { label: "TE", value: 7.98 }, { label: "BE", value: 9.00 }
+      ],
+      subjects: [
+        { name: "Deep Learning", grade: "O" }, { name: "Natural Language Processing", grade: "O" },
+        { name: "Software Testing & QA", grade: "O" }, { name: "Final Year Project", grade: "O" },
+        { name: "Cyber Security & Digital Forensics", grade: "A+" }, { name: "High Performance Computing", grade: "A+" },
+        { name: "Blockchain Technology", grade: "A" }, { name: "Machine Learning", grade: "B" }
+      ],
       docs: [
         { label: "Degree Certificate", file: "assets/education/be-degree-certificate.jpg" },
         { label: "Passing Certificate", file: "assets/education/be-passing-certificate.pdf" },
@@ -125,9 +135,14 @@ const PORTFOLIO = {
       degree: "Higher Secondary Certificate (HSC), Science",
       institute: "Pune Divisional Board",
       board: "Maharashtra State Board of Secondary and Higher Secondary Education",
-      icon: "fa-book",
-      results: ["73.00%"],
-      description: "Science stream with English, Mathematics & Statistics, Physics, Chemistry and Electronics.",
+      logo: "assets/icons/msbshse-logo.png",
+      score: { value: 73, max: 100, label: "Percent", suffix: "%" },
+      results: ["Science Stream"],
+      subjects: [
+        { name: "Electronics", grade: "84%" }, { name: "Chemistry", grade: "73%" },
+        { name: "English", grade: "70%" }, { name: "Physics", grade: "64%" },
+        { name: "Mathematics & Statistics", grade: "63%" }
+      ],
       docs: [
         { label: "Marksheet", file: "assets/education/hsc-marksheet.pdf" }
       ]
@@ -143,11 +158,11 @@ const PORTFOLIO = {
   // pdf: certificate file shown when the card is clicked
   // link: optional verification URL
   certifications: [
-    { title: "AWS Certified Cloud Practitioner", provider: "Amazon Web Services", icon: "https://img.icons8.com/color/96/amazon-web-services.png", pdf: "assets/certificates/aws-cloud-practitioner.pdf", link: "https://aws.amazon.com/verification" },
-    { title: "Google AI Essentials", provider: "Google via Coursera", icon: "https://img.icons8.com/color/96/google-logo.png", pdf: "assets/certificates/google-ai-essentials.pdf", link: "https://coursera.org/verify/specialization/CI7DVZJK88ET" },
-    { title: "Java + Spring Boot, Spring MVC & Hibernate", provider: "Udemy", icon: "https://img.icons8.com/color/96/spring-logo.png", pdf: "assets/certificates/udemy-java-spring-boot.pdf", link: "https://ude.my/UC-a6a52855-ec7f-447b-83f1-71f79ddd1ec5" },
+    { title: "AWS Certified Cloud Practitioner", provider: "Amazon Web Services", icon: "assets/icons/aws.svg", pdf: "assets/certificates/aws-cloud-practitioner.pdf", link: "https://aws.amazon.com/verification" },
+    { title: "Google AI Essentials", provider: "Google via Coursera", icon: "assets/icons/google.png", pdf: "assets/certificates/google-ai-essentials.pdf", link: "https://coursera.org/verify/specialization/CI7DVZJK88ET" },
+    { title: "Java + Spring Boot, Spring MVC & Hibernate", provider: "Udemy", icon: "assets/icons/udemy.svg", pdf: "assets/certificates/udemy-java-spring-boot.pdf", link: "https://ude.my/UC-a6a52855-ec7f-447b-83f1-71f79ddd1ec5" },
     { title: "Postman API Fundamentals Student Expert", provider: "Postman", icon: "assets/certificates/postman-api-fundamentals-badge.png", link: "https://api.badgr.io/public/assertions/EXEIn5h5QuyzwCHz1z--kQ" },
-    { title: "Generative AI Productivity Skills", provider: "Microsoft & LinkedIn", icon: "https://img.icons8.com/color/96/microsoft.png", pdf: "assets/certificates/microsoft-linkedin-generative-ai.pdf" },
+    { title: "Generative AI Productivity Skills", provider: "Microsoft & LinkedIn", icon: "assets/icons/microsoft.png", pdf: "assets/certificates/microsoft-linkedin-generative-ai.pdf" },
     { title: "Cyber Job Simulation", provider: "Deloitte via Forage", icon: "assets/certificates/deloitte-logo.svg", pdf: "assets/certificates/deloitte-cyber-job-simulation.pdf" }
   ],
 
@@ -162,21 +177,21 @@ const PORTFOLIO = {
     },
     {
       title: "Cortex AI", subtitle: "Voice & Vision Assistant", date: "Mar 2026",
-      icon: "https://img.icons8.com/3d-fluency/94/robot-2.png",
+      icon: "assets/icons/gemini.svg",
       description: "LLM-powered desktop assistant with a real-time voice pipeline: speech recognition turns commands into text, the Gemini API generates answers and text-to-speech replies instantly. Supports 4 input modes: voice, live camera with OpenCV, PDF Q&A and web search, plus voice automation to open apps, files and websites.",
       tags: ["Python", "Gemini API", "OpenCV", "STT / TTS"],
       url: ""
     },
     {
       title: "Bank Management System", subtitle: "Desktop Banking App", date: "Jan 2026",
-      icon: "https://img.icons8.com/3d-fluency/94/bank-building.png",
+      icon: "assets/icons/java.svg",
       description: "Java Swing desktop banking application covering 7 core functions: sign-up, PIN login, deposit, withdrawal, fast cash, balance inquiry and PIN change. Backed by a 3-table MySQL database over JDBC, with OOP design and exception handling that blocks overdrawn withdrawals.",
       tags: ["Java", "Swing / AWT", "JDBC", "MySQL"],
       url: ""
     },
     {
       title: "More on GitHub", subtitle: "github.com/Sahil5000", date: "",
-      icon: "https://img.icons8.com/3d-fluency/94/github.png",
+      icon: "assets/icons/github.svg",
       description: "Explore source code for my Java, Spring Boot and web projects, along with practice builds and experiments.",
       tags: ["Java", "Spring Boot", "HTML / CSS", "JavaScript"],
       url: "https://github.com/Sahil5000", cta: "View GitHub", ctaIcon: "fa-github"

@@ -6,6 +6,9 @@
     const icon = (v) => /^(https?:|\/|assets\/)/.test(v)
         ? `<img src="${esc(v)}" alt="" loading="lazy">`
         : `<i class="fa ${esc(v || 'fa-certificate')}" aria-hidden="true"></i>`;
+    // Real brand logo from assets/icons by short name, e.g. logo('react')
+    const logo = (n, cls = 'tech-logo') =>
+        `<img class="${cls}" src="assets/icons/${esc(n)}.svg" alt="${esc(n)}" title="${esc(n)}" loading="lazy">`;
 
     // Simple text bindings
     document.querySelectorAll('[data-bind]').forEach((el) => {
@@ -21,8 +24,8 @@
     $('footerText').textContent = `${d.footerText} | Developed By ${d.name}`;
 
     // Hero chips + typing animation
-    $('heroChips').innerHTML = d.heroChips.map((c) =>
-        `<span>${/^https?:/.test(c.icon)
+    $('heroChips').innerHTML = d.heroChips.map((c, n) =>
+        `<span style="--i:${n}">${/^(https?:|assets\/)/.test(c.icon)
             ? `<img src="${esc(c.icon)}" alt="" aria-hidden="true">`
             : `<i class="fa ${esc(c.icon)}" aria-hidden="true"></i>`}${esc(c.label)}</span>`).join('');
     (function typeLoop(i = 0, len = 0, deleting = false) {
@@ -38,7 +41,7 @@
     // What I Do
     $('focusList').innerHTML = d.focus.map((f, n) => `
         <div class="focus-card" data-aos="fade-up" data-aos-delay="${n * 100}">
-            <img class="focus-icon" src="${esc(f.icon)}" alt="" loading="lazy">
+            <div class="focus-logos">${f.logos.map((l) => `<span>${logo(l)}</span>`).join('')}</div>
             <h3>${esc(f.title)}</h3>
             <p>${esc(f.text)}</p>
             <div class="focus-tags">${f.tags.map((t) => `<span>${esc(t)}</span>`).join('')}</div>
@@ -56,10 +59,10 @@
     photo.src = d.about.photo;
 
     // Skills
-    $('skillsList').innerHTML = d.skills.map((s) => `
-        <div class="barWrapper" data-aos="fade-up">
+    $('skillsList').innerHTML = d.skills.map((s, n) => `
+        <div class="barWrapper" data-aos="fade-up" data-aos-delay="${(n % 2) * 100}">
             <div class="skill-info">
-                <span class="progressText">${esc(s.name)}</span>
+                <span class="progressText"><span class="skill-logos">${(s.logos || []).map((l) => logo(l, 'skill-logo')).join('')}</span>${esc(s.name)}</span>
                 <span class="percentText">${Number(s.level)}%</span>
             </div>
             <div class="progress">
@@ -81,22 +84,77 @@
         </div>`).join('');
 
     // Education
-    $('educationList').innerHTML = d.education.map((ed) => `
-        <div class="edu-card" data-aos="fade-up">
-            <div class="edu-icon"><i class="fa ${esc(ed.icon)}" aria-hidden="true"></i></div>
-            <div class="edu-body">
-                <span class="card-date">${esc(ed.date)}</span>
-                <h3>${esc(ed.degree)}</h3>
-                <h4>${esc(ed.institute)}</h4>
-                <span class="edu-board">${esc(ed.board)}</span>
-                <div class="edu-results">${ed.results.map((r) => `<span>${esc(r)}</span>`).join('')}</div>
-                <p>${esc(ed.description)}</p>
+    const ring = (sc) => {
+        const pct = Math.round((sc.value / sc.max) * 1000) / 10;
+        return `<div class="edu-ring" data-pct="${pct}" style="--pct:0">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                <circle class="ring-fg" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <div class="ring-text"><strong data-count="${sc.value}" data-dec="${String(sc.value).includes('.') ? 2 : 0}" data-suffix="${esc(sc.suffix || '')}">0</strong><span>${esc(sc.label)}</span></div>
+        </div>`;
+    };
+    $('educationList').innerHTML = d.education.map((ed, n) => `
+        <div class="edu-item" data-aos="fade-up" data-aos-delay="${n * 100}">
+            <div class="edu-dot" aria-hidden="true"></div>
+            <div class="edu-card">
+                <div class="edu-top">
+                    <img class="edu-logo" src="${esc(ed.logo)}" alt="${esc(ed.board)} logo" loading="lazy">
+                    <div class="edu-head">
+                        <span class="card-date">${esc(ed.date)}</span>
+                        <h3>${esc(ed.degree)}</h3>
+                        <h4>${esc(ed.institute)}</h4>
+                        <span class="edu-board">${esc(ed.board)}</span>
+                        <div class="edu-results">${ed.results.map((r) => `<span><i class="fa fa-check-circle" aria-hidden="true"></i> ${esc(r)}</span>`).join('')}</div>
+                    </div>
+                    ${ring(ed.score)}
+                </div>
+                <div class="edu-details">
+                    ${ed.journey ? `<div class="edu-block">
+                        <h5>SGPA Journey</h5>
+                        <div class="edu-journey">${ed.journey.map((j) => `
+                            <div class="jbar"><span class="jval">${j.value.toFixed(2)}</span>
+                                <div class="jtrack"><div class="jfill" data-h="${(j.value / 10) * 100}"></div></div>
+                                <span class="jlabel">${esc(j.label)}</span></div>`).join('')}
+                        </div>
+                    </div>` : ''}
+                    <div class="edu-block">
+                        <h5>${ed.journey ? 'Key Subjects & Grades' : 'Subject Scores'}</h5>
+                        <div class="edu-subjects">${ed.subjects.map((s) => `<span>${esc(s.name)}<b>${esc(s.grade)}</b></span>`).join('')}</div>
+                    </div>
+                </div>
                 <div class="edu-docs">${ed.docs.map((doc) => `
                     <button type="button" class="letter-btn" data-pdf="${esc(doc.file)}" data-title="${esc(doc.label)}: ${esc(ed.degree)}">
                         <i class="fa ${/\.pdf$/i.test(doc.file) ? 'fa-file-pdf-o' : 'fa-file-image-o'}" aria-hidden="true"></i> ${esc(doc.label)}</button>`).join('')}
                 </div>
             </div>
         </div>`).join('');
+
+    // Education animations: score ring, number count and SGPA bars when visible
+    const eduObserver = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+            if (!en.isIntersecting) return;
+            const card = en.target;
+            const r = card.querySelector('.edu-ring');
+            if (r) {
+                r.style.setProperty('--pct', r.dataset.pct);
+                const num = r.querySelector('strong');
+                const target = Number(num.dataset.count), dec = Number(num.dataset.dec), suf = num.dataset.suffix;
+                let start = null;
+                const step = (now) => {
+                    if (start === null) start = now;
+                    const t = Math.min((now - start) / 1500, 1);
+                    num.textContent = (target * (1 - Math.pow(1 - t, 3))).toFixed(dec) + suf;
+                    if (t < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+                setTimeout(() => { num.textContent = target.toFixed(dec) + suf; }, 1650);
+            }
+            card.querySelectorAll('.jfill').forEach((f, i) => setTimeout(() => { f.style.height = f.dataset.h + '%'; }, 200 + i * 150));
+            eduObserver.unobserve(card);
+        });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.edu-card').forEach((c) => eduObserver.observe(c));
 
     // Achievements (hidden when empty)
     if (d.achievements.length) {
@@ -227,5 +285,33 @@
     }, { rootMargin: '-45% 0px -50% 0px' });
     document.querySelectorAll('main section[id]').forEach((s) => sectionObserver.observe(s));
 
-    if (window.AOS) AOS.init({ once: true, duration: 900 });
+    // Scroll progress bar, compact navbar and back-to-top button
+    const progress = document.createElement('div');
+    progress.className = 'scroll-progress';
+    document.body.appendChild(progress);
+    const toTop = document.createElement('button');
+    toTop.className = 'to-top';
+    toTop.type = 'button';
+    toTop.setAttribute('aria-label', 'Back to top');
+    toTop.innerHTML = '<i class="fa fa-arrow-up" aria-hidden="true"></i>';
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.body.appendChild(toTop);
+    const navbar = $('navbar');
+    const onScroll = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+        toTop.classList.toggle('show', window.scrollY > 600);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Section heading underline grows in when the heading comes into view
+    const headObserver = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in-view'); headObserver.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.section-heading').forEach((h) => headObserver.observe(h));
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (window.AOS) AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic', disable: reduceMotion });
 })();
