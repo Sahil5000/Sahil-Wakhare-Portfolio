@@ -14,7 +14,7 @@
     });
     document.title = `${d.name} | Portfolio`;
     $('resumeBtn').href = d.resume;
-    $('footerText').textContent = `${d.footerText} | ${d.name}`;
+    $('footerText').textContent = `${d.footerText} ${d.name}`;
 
     // Hero chips + typing animation
     $('heroChips').innerHTML = d.heroChips.map((c) =>
