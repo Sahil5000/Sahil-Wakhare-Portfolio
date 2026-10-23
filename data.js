@@ -196,7 +196,8 @@ const PORTFOLIO = {
   contact: {
     phone: "+91 9356682699",
     email: "ersahilwakhare@gmail.com",
-    location: "Pune, Maharashtra",
+    location: "Pune, Maharashtra",       // text shown on the card
+    mapAddress: "Flat No E-1001, Shubh Shagun Society, In-Front of Bollywood Theatre, Old Mundhwa Road, Kharadi, Pune, Maharashtra 411014", // opened in Google Maps
     whatsapp: "919356682699",            // country code + number, digits only
     linkedin: "https://www.linkedin.com/" // TODO: your LinkedIn profile URL
   }
