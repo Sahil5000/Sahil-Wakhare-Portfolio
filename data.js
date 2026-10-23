@@ -30,7 +30,7 @@ const PORTFOLIO = {
     details: [
       { label: "Current Role", value: "Associate Developer" },
       { label: "Company", value: "Movinnza" },
-      { label: "Education", value: "B.E. Computer Science, SPPU (PGMCOE) — CGPA 7.76" },
+      { label: "Education", value: "B.E. Computer Engineering, SPPU — CGPA 7.76" },
       { label: "Location", value: "Pune, Maharashtra" }
     ],
     photo: "assets/images/profile.jpg"   // put your photo at this path (square works best)
