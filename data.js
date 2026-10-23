@@ -124,7 +124,7 @@ const PORTFOLIO = {
   projects: [
     {
       title: "Curated Canopy Safaris", subtitle: "Safari Booking Website", date: "Live",
-      icon: "https://img.icons8.com/3d-fluency/94/elephant.png",
+      icon: "assets/projects/curated-canopy-icon.png",
       description: "Wildlife safari booking website with safari packages, detailed itineraries, pricing, blog, contact forms and booking flow with Easebuzz payment gateway. Built on Next.js for routing and rendering, with SEO through Next.js Metadata and JSON-LD structured data, and Sharp image optimization.",
       tags: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Easebuzz"],
       url: "https://curatedcanopysafaris.com/", cta: "Visit Website", ctaIcon: "fa-globe"

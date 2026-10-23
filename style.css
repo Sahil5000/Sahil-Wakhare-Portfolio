@@ -282,6 +282,8 @@ hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
 .project-card:hover { transform: translateY(-8px); border-top-color: var(--accent); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
 .project-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
 .project-icon { width: 58px; height: 58px; flex-shrink: 0; }
+/* Real brand logos (square images) get app-icon style corners */
+.project-icon[src^="assets/projects/"] { border-radius: 14px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
 .project-head h3 { margin: 0; font-size: 20px; color: var(--primary); }
 .project-sub { font-size: 13px; font-weight: 600; color: var(--accent); }
 .project-card p {
