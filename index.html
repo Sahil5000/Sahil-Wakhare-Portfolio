@@ -25,16 +25,29 @@
     <meta name="twitter:title" content="Sahil Wakhare | Software Developer | AI & Cloud">
     <meta name="twitter:description" content="I build AI-powered apps, LLM integrations and cloud-ready full-stack solutions.">
     <meta name="twitter:image" content="https://sahil5000.github.io/Sahil-Wakhare-Portfolio/assets/images/og-image.jpg">
+    <script>
+        // Apply saved or system theme before the page paints
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem("theme"); } catch (e) {}
+            if (!t) t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", t);
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="style.css?v=202610231821">
+    <link rel="stylesheet" href="style.css?v=202610261726">
 </head>
 <body>
     <nav class="navbar" id="navbar">
         <div class="container nav-inner">
             <a class="brand" href="#" data-bind="name-upper"></a>
+            <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch dark / light theme" title="Switch theme">
+                <i class="fa fa-moon-o icon-moon" aria-hidden="true"></i><i class="fa fa-sun-o icon-sun" aria-hidden="true"></i>
+            </button>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
                 <span></span><span></span><span></span>
             </button>
@@ -49,6 +62,7 @@
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            </div>
         </div>
     </nav>
 
@@ -56,6 +70,7 @@
         <section id="welcome-hero" class="welcome-hero">
             <div class="container text-center">
                 <div class="header-text">
+                    <span class="hero-status" id="heroStatus"><span class="status-dot"></span><span id="heroStatusText"></span></span>
                     <span class="hero-hello">Hello, I'm</span>
                     <h1 data-bind="fullName"></h1>
                     <p class="hero-tagline" data-bind="tagline"></p>
@@ -65,6 +80,7 @@
                         <a id="resumeBtn" class="btn-primary" download><i class="fa fa-download" aria-hidden="true"></i> DOWNLOAD RESUME</a>
                         <a href="#projects" class="btn-ghost"><i class="fa fa-rocket" aria-hidden="true"></i> VIEW PROJECTS</a>
                     </div>
+                    <div class="hero-socials" id="heroSocials"></div>
                 </div>
             </div>
         </section>
@@ -78,7 +94,7 @@
         <section id="about">
             <div class="container about-grid">
                 <div data-aos="fade-right">
-                    <div class="section-heading"><h2>Professional Bio</h2></div>
+                    <div class="section-heading"><span class="eyebrow">About me</span><h2>Professional Bio</h2></div>
                     <p class="bio" data-bind="about.bio"></p>
                     <hr>
                     <div class="two-col" id="aboutDetails"></div>
@@ -92,56 +108,56 @@
 
         <section id="focus" class="bg-light">
             <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>What I Do</h2></div>
+                <div class="section-heading" data-aos="fade-up"><span class="eyebrow">My expertise</span><h2>What I Do</h2></div>
                 <div class="focus-grid" id="focusList"></div>
             </div>
         </section>
 
         <section id="skills">
             <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Technical Expertise</h2></div>
+                <div class="section-heading" data-aos="fade-up"><span class="eyebrow">Tools I work with</span><h2>Technical Expertise</h2></div>
                 <div class="grid-2" id="skillsList"></div>
             </div>
         </section>
 
         <section id="experience" class="bg-light">
             <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Work History</h2></div>
-                <div id="experienceList"></div>
+                <div class="section-heading" data-aos="fade-up"><span class="eyebrow">My journey so far</span><h2>Work History</h2></div>
+                <div class="exp-list" id="experienceList"></div>
             </div>
         </section>
 
         <section id="projects">
             <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Projects</h2></div>
+                <div class="section-heading" data-aos="fade-up"><span class="eyebrow">Things I have built</span><h2>Projects</h2></div>
                 <div class="grid-2 project-grid" id="projectList"></div>
             </div>
         </section>
 
         <section id="education" class="bg-light">
             <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Education</h2></div>
+                <div class="section-heading" data-aos="fade-up"><span class="eyebrow">Academic background</span><h2>Education</h2></div>
                 <div class="edu-list" id="educationList"></div>
             </div>
         </section>
 
         <section id="achievements" class="bg-light">
             <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Key Achievements</h2></div>
+                <div class="section-heading" data-aos="fade-up"><span class="eyebrow">Highlights</span><h2>Key Achievements</h2></div>
                 <div class="grid-3" id="achievementsList"></div>
             </div>
         </section>
 
         <section id="certifications">
             <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Certifications</h2></div>
+                <div class="section-heading" data-aos="fade-up"><span class="eyebrow">Verified learning</span><h2>Certifications</h2></div>
                 <div class="grid-4" id="certList"></div>
             </div>
         </section>
 
         <section id="contact" class="bg-light">
             <div class="container">
-                <div class="section-heading" data-aos="fade-up"><h2>Get In Touch</h2></div>
+                <div class="section-heading" data-aos="fade-up"><span class="eyebrow">Let's talk</span><h2>Get In Touch</h2></div>
                 <div class="grid-3 contact-grid" data-aos="fade-up">
                     <a class="contact-item" id="cPhone"><img class="contact-logo" src="assets/icons/phone.png" alt=""><h4>Phone</h4><span class="contact-value" id="cPhoneText"></span></a>
                     <a class="contact-item" id="cEmail"><img class="contact-logo" src="assets/icons/gmail.png" alt=""><h4>Email</h4><span class="contact-value" id="cEmailText"></span></a>
@@ -178,7 +194,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="data.js?v=202610231821"></script>
-    <script src="script.js?v=202610231821"></script>
+    <script src="data.js?v=202610261726"></script>
+    <script src="script.js?v=202610261726"></script>
 </body>
 </html>

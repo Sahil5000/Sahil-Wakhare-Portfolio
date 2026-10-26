@@ -6,6 +6,7 @@ const PORTFOLIO = {
   fullName: "Sahil Namdev Wakhare",      // hero heading
   honorific: "",                         // optional title before the name in hero and navbar (e.g. "Er.")
   tagline: "Software Developer | AI & Cloud Focused",
+  availability: "Open to new opportunities",   // green badge in the hero; "" hides it
   // Hero typing animation: "I build ..."
   typedRoles: [
     "AI-Powered Applications",
@@ -86,12 +87,16 @@ const PORTFOLIO = {
       date: "Sep 2026 - Present",
       title: "Associate Developer",
       company: "Movinnza, Pune",
+      logo: "assets/companies/movinnza.png",
+      tags: ["React.js", "Next.js", "Node.js", "PostgreSQL", "GraphQL"],
       description: "Develop and maintain 10+ full-stack production websites and web apps with React.js, Next.js, Node.js, PostgreSQL and GraphQL. Ship features for the Nexus 360 SaaS platform, integrate REST and third-party APIs, and resolve client-reported bugs in production. Drive AI-assisted development with ChatGPT, Claude and Gemini for debugging, documentation and writing test cases, with manual review of all AI output."
     },
     {
       date: "Mar 2026 - Sep 2026",
       title: "Associate Software Engineer Intern",
       company: "Kshetrapati Industries Pvt. Ltd., Pune",
+      logo: "assets/companies/kshetrapati.png",
+      tags: ["Java", "SQL", "Workflow Automation", "Code Review"],
       letter: "assets/letters/kshetrapati-experience-letter.pdf",
       description: "Engineered Java-based enterprise modules for workflow automation, customer management, reporting dashboards and operational tracking. Automated database-driven business workflows to reduce manual data entry, and audited code (including AI-assisted code) to catch logic and security flaws before release."
     },
@@ -99,6 +104,8 @@ const PORTFOLIO = {
       date: "Sep 2025 - Feb 2026",
       title: "Software Engineer Intern",
       company: "SETTribe IT Solutions, Pune",
+      logo: "assets/companies/settribe.png",
+      tags: ["Java", "Spring Boot", "SQL", "REST APIs"],
       letter: "assets/letters/settribe-experience-letter.pdf",
       description: "Developed government web platform modules using Java, Spring Boot, SQL and REST APIs. Optimized database queries to reduce response time, resolved defects to strengthen backend reliability, and tested application code for security risks and quality before deployment."
     }

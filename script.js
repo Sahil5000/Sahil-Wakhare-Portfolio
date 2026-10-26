@@ -23,6 +23,26 @@
     $('resumeBtn').href = d.resume;
     $('footerText').textContent = `${d.footerText} | Developed By ${d.name}`;
 
+    // Hero availability badge + social links
+    if (d.availability) $('heroStatusText').textContent = d.availability;
+    else $('heroStatus').remove();
+    const ct = d.contact;
+    const socials = [
+        { icon: 'fa-github', label: 'GitHub', href: (d.projects.find((p) => /github\.com/.test(p.url || '')) || {}).url },
+        { icon: 'fa-linkedin', label: 'LinkedIn', href: ct.linkedin },
+        { icon: 'fa-envelope', label: 'Email', href: `mailto:${ct.email}` },
+        { icon: 'fa-whatsapp', label: 'WhatsApp', href: `https://wa.me/${ct.whatsapp.replace(/\D/g, '')}` }
+    ].filter((s) => s.href);
+    $('heroSocials').innerHTML = socials.map((s) =>
+        `<a href="${esc(s.href)}" ${/^https?:/.test(s.href) ? 'target="_blank" rel="noopener"' : ''} aria-label="${s.label}" title="${s.label}"><i class="fa ${s.icon}" aria-hidden="true"></i></a>`).join('');
+
+    // Dark / light theme toggle (saved per visitor)
+    $('themeToggle').addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable */ }
+    });
+
     // Hero chips + typing animation
     $('heroChips').innerHTML = d.heroChips.map((c, n) =>
         `<span style="--i:${n}">${/^(https?:|assets\/)/.test(c.icon)
@@ -75,14 +95,23 @@
         </div>`).join('');
 
     // Experience
-    $('experienceList').innerHTML = d.experience.map((e) => `
-        <div class="card-box" data-aos="fade-up">
-            <span class="card-date">${esc(e.date)}</span>
-            <h3>${esc(e.title)}</h3>
-            <h4>${esc(e.company)}</h4>
-            <p>${esc(e.description)}</p>
-            ${e.letter ? `<button type="button" class="letter-btn" data-pdf="${esc(e.letter)}" data-title="Experience Letter: ${esc(e.company.split(',')[0])}">
-                <i class="fa fa-file-text-o" aria-hidden="true"></i> View Experience Letter</button>` : ''}
+    $('experienceList').innerHTML = d.experience.map((e, n) => `
+        <div class="exp-item" data-aos="fade-up" data-aos-delay="${n * 80}">
+            <div class="exp-dot${/present/i.test(e.date) ? ' current' : ''}" aria-hidden="true"></div>
+            <div class="card-box">
+                <div class="exp-top">
+                    ${e.logo ? `<span class="co-logo"><img src="${esc(e.logo)}" alt="${esc(e.company.split(',')[0])} logo" loading="lazy"></span>` : ''}
+                    <div class="exp-head">
+                        <span class="card-date">${esc(e.date)}${/present/i.test(e.date) ? ' <span class="now-badge">Current</span>' : ''}</span>
+                        <h3>${esc(e.title)}</h3>
+                        <h4>${esc(e.company)}</h4>
+                    </div>
+                </div>
+                <p>${esc(e.description)}</p>
+                ${e.tags ? `<div class="focus-tags exp-tags">${e.tags.map((t) => `<span>${esc(t)}</span>`).join('')}</div>` : ''}
+                ${e.letter ? `<button type="button" class="letter-btn" data-pdf="${esc(e.letter)}" data-title="Experience Letter: ${esc(e.company.split(',')[0])}">
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i> View Experience Letter</button>` : ''}
+            </div>
         </div>`).join('');
 
     // Education
