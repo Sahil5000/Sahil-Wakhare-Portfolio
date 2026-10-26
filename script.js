@@ -330,23 +330,6 @@
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Loading screen: show at least 700ms, hide once the page has loaded (max 3s)
-    const loader = $('pageLoader');
-    const shownAt = performance.now();
-    let loaderHidden = false;
-    const hideLoader = () => {
-        if (loaderHidden) return;
-        loaderHidden = true;
-        setTimeout(() => {
-            loader.classList.add('done');
-            document.body.classList.remove('is-loading');
-            setTimeout(() => loader.remove(), 700);
-        }, Math.max(0, 700 - (performance.now() - shownAt)));
-    };
-    if (reduceMotion) hideLoader();
-    else if (document.readyState === 'complete') hideLoader();
-    else window.addEventListener('load', hideLoader);
-    setTimeout(hideLoader, 3000);
 
     if (window.AOS) AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic', disable: reduceMotion });
 })();
