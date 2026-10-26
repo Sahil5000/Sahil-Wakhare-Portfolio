@@ -335,5 +335,42 @@
     document.querySelectorAll('.section-heading').forEach((h) => headObserver.observe(h));
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Loading screen: show at least 700ms, hide once the page has loaded (max 3s)
+    const loader = $('pageLoader');
+    const shownAt = performance.now();
+    let loaderHidden = false;
+    const hideLoader = () => {
+        if (loaderHidden) return;
+        loaderHidden = true;
+        setTimeout(() => {
+            loader.classList.add('done');
+            document.body.classList.remove('is-loading');
+            setTimeout(() => loader.remove(), 700);
+        }, Math.max(0, 700 - (performance.now() - shownAt)));
+    };
+    if (reduceMotion) hideLoader();
+    else if (document.readyState === 'complete') hideLoader();
+    else window.addEventListener('load', hideLoader);
+    setTimeout(hideLoader, 3000);
+
+    // Cursor glow follows the mouse (mouse/trackpad devices only)
+    const glow = $('cursorGlow');
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) {
+        let gx = 0, gy = 0, tx = 0, ty = 0, raf = null;
+        const move = () => {
+            gx += (tx - gx) * 0.18; gy += (ty - gy) * 0.18;
+            glow.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
+            raf = Math.abs(tx - gx) > 0.5 || Math.abs(ty - gy) > 0.5 ? requestAnimationFrame(move) : null;
+        };
+        window.addEventListener('mousemove', (e) => {
+            tx = e.clientX; ty = e.clientY;
+            glow.classList.add('on');
+            if (!raf) raf = requestAnimationFrame(move);
+        }, { passive: true });
+        document.addEventListener('mouseleave', () => glow.classList.remove('on'));
+    } else {
+        glow.remove();
+    }
     if (window.AOS) AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic', disable: reduceMotion });
 })();

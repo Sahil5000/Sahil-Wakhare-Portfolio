@@ -38,9 +38,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="style.css?v=202610261726">
+    <link rel="stylesheet" href="style.css?v=202610261733">
 </head>
-<body>
+<body class="is-loading">
+    <div class="page-loader" id="pageLoader" aria-hidden="true">
+        <div class="loader-mark">
+            <svg class="loader-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"></circle></svg>
+            <span class="loader-logo">SW</span>
+        </div>
+        <span class="loader-name">Sahil Wakhare</span>
+    </div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
     <nav class="navbar" id="navbar">
         <div class="container nav-inner">
             <a class="brand" href="#" data-bind="name-upper"></a>
@@ -194,7 +202,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="data.js?v=202610261726"></script>
-    <script src="script.js?v=202610261726"></script>
+    <script src="data.js?v=202610261733"></script>
+    <script src="script.js?v=202610261733"></script>
 </body>
 </html>
