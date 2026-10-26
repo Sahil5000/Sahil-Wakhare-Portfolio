@@ -36,12 +36,6 @@
     $('heroSocials').innerHTML = socials.map((s) =>
         `<a href="${esc(s.href)}" ${/^https?:/.test(s.href) ? 'target="_blank" rel="noopener"' : ''} aria-label="${s.label}" title="${s.label}"><i class="fa ${s.icon}" aria-hidden="true"></i></a>`).join('');
 
-    // Dark / light theme toggle (saved per visitor)
-    $('themeToggle').addEventListener('click', () => {
-        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        try { localStorage.setItem('theme', next); } catch (e) { /* storage unavailable */ }
-    });
 
     // Hero chips + typing animation
     $('heroChips').innerHTML = d.heroChips.map((c, n) =>
@@ -354,23 +348,5 @@
     else window.addEventListener('load', hideLoader);
     setTimeout(hideLoader, 3000);
 
-    // Cursor glow follows the mouse (mouse/trackpad devices only)
-    const glow = $('cursorGlow');
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) {
-        let gx = 0, gy = 0, tx = 0, ty = 0, raf = null;
-        const move = () => {
-            gx += (tx - gx) * 0.18; gy += (ty - gy) * 0.18;
-            glow.style.transform = `translate3d(${gx}px, ${gy}px, 0)`;
-            raf = Math.abs(tx - gx) > 0.5 || Math.abs(ty - gy) > 0.5 ? requestAnimationFrame(move) : null;
-        };
-        window.addEventListener('mousemove', (e) => {
-            tx = e.clientX; ty = e.clientY;
-            glow.classList.add('on');
-            if (!raf) raf = requestAnimationFrame(move);
-        }, { passive: true });
-        document.addEventListener('mouseleave', () => glow.classList.remove('on'));
-    } else {
-        glow.remove();
-    }
     if (window.AOS) AOS.init({ once: true, duration: 900, easing: 'ease-out-cubic', disable: reduceMotion });
 })();
